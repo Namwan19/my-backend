@@ -149,7 +149,7 @@ if (document.getElementById("payTotal")) {
 function finish() {
   let total = cart.reduce((sum, item) => sum + item.price * (item.qty || 1), 0);
 
-  fetch("http://localhost:3000/order", {
+ fetch("https://my-backend-8mnb.onrender.com/order", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
