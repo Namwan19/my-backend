@@ -1,7 +1,6 @@
 const express = require("express");
 const mysql = require("mysql2");
 const cors = require("cors");
-const path = require("path");
 
 const app = express();
 
@@ -9,32 +8,21 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// ให้ Express รู้จักโฟลเดอร์ public
-app.use(express.static(path.join(__dirname, "public")));
-
-// ================== Route HTML ==================
+// ================== TEST ROUTE ==================
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "menu.html")); // หน้าแรกเปิด menu.html
+  res.send("server ok");
 });
 
 app.get("/menu", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "menu.html"));
-});
-
-app.get("/cart", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "cart.html")); // ถ้ามีไฟล์ cart.html
-});
-
-app.get("/home", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "home.html")); // ถ้ามีไฟล์ home.html
+  res.send("menu ok");
 });
 
 // ================== MySQL ==================
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "food_app"
+  host: "YOUR_HOST",
+  user: "YOUR_USER",
+  password: "YOUR_PASSWORD",
+  database: "YOUR_DB"
 });
 
 // ================== เพิ่มออเดอร์ ==================
@@ -121,6 +109,8 @@ app.delete("/orders/:id", (req, res) => {
 });
 
 // ================== START SERVER ==================
-app.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log("Server running on port " + PORT);
 });
