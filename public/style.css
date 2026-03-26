@@ -1,0 +1,287 @@
+body {
+  font-family: 'Prompt';
+  background: #dca85b;
+  text-align: center;
+}
+
+h2 {
+  margin: 20px;
+  font-family: 'Prompt';
+  font-size: 40px;
+}
+
+/* ================= MENU ================= */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* การ์ดสินค้า */
+.card {
+  background: linear-gradient(145deg, #ffffff, #ffe6cc); /* ไล่สีอ่อนๆ */
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+/* รูปสินค้า */
+.card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+/* ชื่อสินค้า */
+.card h4 {
+  margin: 10px 0 5px 0;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* ราคา */
+.card p {
+  margin: 0 0 10px 0;
+  color: #ff6600;
+  font-weight: bold;
+}
+
+/* ================= BUTTON ================= */
+.card {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  padding: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* ปุ่มไอคอนใน .card */
+.card button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.card button img {
+  width: 18px;
+  height: 18px;
+  display: block;
+  margin: 0 auto;
+}
+
+.card p {
+  color: #ff6a00;
+  font-size: 15px;
+  font-weight: bold;
+}
+/* ================= CONTAINER ================= */
+.container {
+  max-width: 400px;
+  margin: 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* ================= CART ================= */
+.item {
+  background: #fff5e6;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+
+/* ปุ่มในตะกร้า */
+.item button {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin-left: 14px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* svg อยู่กลาง */
+.item button img {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+/* รวมเงิน */
+#total, #summaryTotal, #payTotal {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.btn-group {
+  display: flex;
+  gap: 6px;
+}
+
+.info {
+  flex: 1;
+  text-align: left;
+}
+
+/* ปุ่มเพิ่ม ลด ลบ */
+.btn-group button:nth-child(1) {
+  background: #4CAF50;
+}
+
+.btn-group button:nth-child(2) {
+  background: #ff9800;
+}
+
+.btn-group button:nth-child(3) {
+  background: #f44336;
+}
+
+.qty-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.qty-control button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff; /* << อันนี้หาย */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* << อันนี้หาย */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.qty-control button:hover {
+  transform: scale(1.15);
+}
+
+.qty-control button:active {
+  transform: scale(0.9);
+}
+
+.qty-control img {
+  width: 18px;
+}
+
+.qty-control span {
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+  top: 5px;
+}
+.card img {
+  border-radius: 14px;
+  height: 150px;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+/* ================= CART BUTTON ================= */
+.cart-btn {
+  font-family: 'Prompt';
+  margin: 30px auto;
+  display: block;
+  font-size: 18px;
+  padding: 12px 28px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff8c00, #ff5e00);
+  color: white;
+  border: none;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.cart-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+.cart-btn:active {
+  transform: scale(0.95);
+}
+
+.card::after {
+  pointer-events: none;
+}
+
+.menu-header {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.menu-header h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+  margin: 0;
+
+  /* gradient text */
+  background: linear-gradient(45deg, #fff, #ffe0b2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.menu-header::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin: 10px auto 0;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #ff8c00, #ff5e00);
+}
